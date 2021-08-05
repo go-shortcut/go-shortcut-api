@@ -172,7 +172,6 @@ type DeleteStoriesParam struct {
 	StoryIds []int64 `json:"story_ids"`
 }
 
-
 func (c *Client) StoryCreate(param CreateStoryParams) (*Story, error) {
 	stories, err := c.StoriesCreate([]CreateStoryParams{param})
 
@@ -211,7 +210,7 @@ func (c *Client) StoriesCreate(params []CreateStoryParams) ([]*Story, error) {
 func (c *Client) StoryArchive(storyId int64) (*Story, error) {
 	path := fmt.Sprintf("/stories/%d", storyId)
 
-	updateStory := UpdateStoriesParam {
+	updateStory := UpdateStoriesParam{
 		Archived: true,
 	}
 

@@ -119,7 +119,7 @@ func AssertError(t *testing.T, e error, message string) {
 		return
 	}
 	if len(message) == 0 {
-		message = fmt.Sprintf("Check Failed: %v != 0", e.Error())
+		message = fmt.Sprintf("Check Failed: Error expected, got nil")
 	}
-	t.Fatal(message, "\n\t>", e.Error())
+	t.Fatal(message, "\n\t>")
 }

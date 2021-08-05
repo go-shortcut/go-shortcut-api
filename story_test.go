@@ -24,11 +24,11 @@ func TestCreateGetDeleteStory(t *testing.T) {
 	// Create a new Story, Ensure that the name is Test
 	name := "Testing 123!"
 	newStory, err := client.StoryCreate(clubhouse.CreateStoryParams{
-		Name: name,
+		Name:        name,
 		Description: "something to describe this issue",
-		Archived: false,
-		StoryType: clubhouse.StoryTypeFeature,
-		ProjectID: project.ID,
+		Archived:    false,
+		StoryType:   clubhouse.StoryTypeFeature,
+		ProjectID:   project.ID,
 	})
 	AssertNoError(t, err, "Story Created without error")
 	AssertNotNil(t, newStory, "Story response exists")
