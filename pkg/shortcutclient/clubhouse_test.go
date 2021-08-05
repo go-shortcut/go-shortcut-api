@@ -1,19 +1,18 @@
-package clubhouse_test
+package shortcutclient_test
 
 import (
 	"flag"
 	"fmt"
+	"github.com/go-shortcut/go-shortcut-api/pkg/shortcutclient"
 	"os"
 	"testing"
 	"time"
-
-	"github.com/nhalstead/clubhouse"
 )
 
-var client *clubhouse.Client
+var client *shortcutclient.Client
 
 func TestMain(m *testing.M) {
-	client = clubhouse.New(os.Getenv("CLUBHOUSE_TOKEN"))
+	client = shortcutclient.New(os.Getenv("CLUBHOUSE_TOKEN"))
 	flag.BoolVar(&client.Debug, "debug", false, "Debug tests")
 	flag.Parse()
 

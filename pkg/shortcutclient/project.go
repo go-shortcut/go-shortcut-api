@@ -1,4 +1,4 @@
-package clubhouse
+package shortcutclient
 
 type Project struct {
 	Abbreviation      string   `json:"abbreviation"`

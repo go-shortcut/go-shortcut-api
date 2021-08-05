@@ -1,4 +1,4 @@
-package clubhouse
+package shortcutclient
 
 type PullRequest struct {
 	BranchID         int64  `json:"branch_id"`

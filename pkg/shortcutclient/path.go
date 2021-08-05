@@ -1,4 +1,4 @@
-package clubhouse
+package shortcutclient
 
 import "net/url"
 

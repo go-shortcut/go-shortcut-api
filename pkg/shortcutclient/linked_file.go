@@ -1,4 +1,4 @@
-package clubhouse
+package shortcutclient
 
 type LinkedFile struct {
 	ContentType      string   `json:"content_type"`

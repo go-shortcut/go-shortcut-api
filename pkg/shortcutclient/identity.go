@@ -1,4 +1,4 @@
-package clubhouse
+package shortcutclient
 
 type Identity struct {
 	EntityType string `json:"entity_type"`

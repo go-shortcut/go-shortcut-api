@@ -1,4 +1,4 @@
-package clubhouse
+package shortcutclient
 
 type Label struct {
 	AppURL      string `json:"app_url"`

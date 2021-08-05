@@ -1,7 +1,7 @@
-package clubhouse_test
+package shortcutclient_test
 
 import (
-	"github.com/nhalstead/clubhouse"
+	"github.com/go-shortcut/go-shortcut-api/pkg/shortcutclient"
 	"testing"
 )
 
@@ -23,11 +23,11 @@ func TestCreateGetDeleteStory(t *testing.T) {
 
 	// Create a new Story, Ensure that the name is Test
 	name := "Testing 123!"
-	newStory, err := client.StoryCreate(clubhouse.CreateStoryParams{
+	newStory, err := client.StoryCreate(shortcutclient.CreateStoryParams{
 		Name:        name,
 		Description: "something to describe this issue",
 		Archived:    false,
-		StoryType:   clubhouse.StoryTypeFeature,
+		StoryType:   shortcutclient.StoryTypeFeature,
 		ProjectID:   project.ID,
 	})
 	AssertNoError(t, err, "Story Created without error")

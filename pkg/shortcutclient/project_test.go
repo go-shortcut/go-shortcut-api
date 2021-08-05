@@ -1,4 +1,4 @@
-package clubhouse_test
+package shortcutclient_test
 
 import (
 	"testing"

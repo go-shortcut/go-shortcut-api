@@ -1,4 +1,4 @@
-package clubhouse
+package shortcutclient
 
 type StoryLink struct {
 	CreatedAt  string `json:"created_at"`

@@ -1,4 +1,4 @@
-package clubhouse
+package shortcutclient
 
 type Branch struct {
 	CreatedAt       string        `json:"created_at"`

@@ -1,4 +1,4 @@
-package clubhouse
+package shortcutclient
 
 type ExternalTicket struct {
 	EpicIDs     []int64 `json:"epic_ids"`

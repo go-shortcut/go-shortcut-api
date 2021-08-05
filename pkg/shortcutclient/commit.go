@@ -1,4 +1,4 @@
-package clubhouse
+package shortcutclient
 
 type Commit struct {
 	AuthorEmail     string   `json:"author_email"`

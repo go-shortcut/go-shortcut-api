@@ -1,3 +1,3 @@
-module github.com/nhalstead/clubhouse
+module github.com/go-shortcut/go-shortcut-api
 
-go 1.13
+go 1.16
