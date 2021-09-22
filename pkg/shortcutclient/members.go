@@ -20,21 +20,21 @@ type Profile struct {
 	TwoFactorAuthActivated bool   `json:"two_factor	_auth_activated"`
 }
 
-func (s *Client) ListMembers() ([]Member, error) {
+func (c *Client) ListMembers() ([]Member, error) {
 	path := "/members"
 
 	var members []Member
-	if err := s.get(path, &members); err != nil {
+	if err := c.get(path, &members); err != nil {
 		return nil, err
 	}
 
 	return members, nil
 }
-func (s *Client) GetMember(memberID string) (*Member, error) {
+func (c *Client) GetMember(memberID string) (*Member, error) {
 	path := fmt.Sprintf("/members/%s", memberID)
 
 	var member *Member
-	if err := s.get(path, &member); err != nil {
+	if err := c.get(path, &member); err != nil {
 		return nil, err
 	}
 
