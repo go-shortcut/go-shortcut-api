@@ -16,7 +16,7 @@ type ErrorResponse struct {
 	Tag     string `json:"tag"`
 }
 
-const DefaultURL = "https://api.clubhouse.io/api/v3"
+const DefaultURL = "https://api.app.shortcut.com/api/v3"
 
 func New(token string) *Client {
 	return &Client{
@@ -39,11 +39,12 @@ func (c *Client) makeRequest(method, path string, body interface{}) (*http.Reque
 		return nil, err
 	}
 
-	url := fmt.Sprintf("%s%s?token=%s", c.URL, path, c.Token)
+	url := c.URL + path
 	req, err := http.NewRequest(method, url, &buf)
 	if err != nil {
 		return nil, err
 	}
+	req.Header.Set("Shortcut-Token", c.Token)
 	req.Header.Set("Content-Type", "application/json")
 
 	if c.Debug {

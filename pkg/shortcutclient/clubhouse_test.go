@@ -12,7 +12,7 @@ import (
 var client *shortcutclient.Client
 
 func TestMain(m *testing.M) {
-	client = shortcutclient.New(os.Getenv("CLUBHOUSE_TOKEN"))
+	client = shortcutclient.New(os.Getenv("SHORTCUT_API_TOKEN"))
 	flag.BoolVar(&client.Debug, "debug", false, "Debug tests")
 	flag.Parse()
 

@@ -1,7 +1,6 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 	"github.com/go-shortcut/go-shortcut-api/pkg/shortcutclient"
 	"os"
@@ -12,13 +11,13 @@ import (
 
 func main() {
 
-	token := os.Getenv("CLUBHOUSE_API_TOKEN")
+	token := os.Getenv("SHORTCUT_API_TOKEN")
 	if token == "" {
-		panic(errors.New("CLUBHOUSE_API_TOKEN environ is required"))
+		fmt.Println("SHORTCUT_API_TOKEN environ is required")
+		os.Exit(1)
 	}
 	shortcutClient := shortcutclient.New(token)
 	shortcutClient.HTTPClient.Timeout = 30 * time.Second
-	//shortcutClient.URL = "https://api.shortcut.com/api/v3"
 
 	// Get Epics information
 	epics, err := shortcutClient.ListEpics()
