@@ -18,3 +18,7 @@ fmt:
 
 run:
 	go run cmd/report/main.go
+
+play:
+	go run cmd/playground/main.go
+

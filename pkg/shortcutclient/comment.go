@@ -19,9 +19,9 @@ type Comment struct {
 }
 
 type CreateCommentParams struct {
-	AuthorID   *string    `json:"author_id,omitempty"`
+	AuthorID   string     `json:"author_id,omitempty"`
 	CreatedAt  *time.Time `json:"created_at,omitempty"`
-	ExternalID *string    `json:"external_id,omitempty"`
+	ExternalID string     `json:"external_id,omitempty"`
 	Text       string     `json:"text"`
 	UpdatedAt  *time.Time `json:"updated_at"`
 }

@@ -12,7 +12,7 @@ type CreateEpicParams struct {
 
 	// Optional
 	CompletedAtOverride *time.Time          `json:"completed_at_override,omitempty"`
-	CreatedAt           time.Time           `json:"created_at,omitempty"`
+	CreatedAt           *time.Time          `json:"created_at,omitempty"`
 	Deadline            *time.Time          `json:"deadline,omitempty"`
 	EpicStateID         int64               `json:"epic_state_id,omitempty"`
 	ExternalID          string              `json:"external_id,omitempty"`

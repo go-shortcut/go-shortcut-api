@@ -79,16 +79,16 @@ type CreateStoryCommentParams struct {
 	Text string `json:"text"`
 
 	// Optional
-	AuthorID   *string    `json:"author_id,omitempty"`
+	AuthorID   string     `json:"author_id,omitempty"`
 	CreatedAt  *time.Time `json:"created_at,omitempty"`
-	ExternalID *string    `json:"external_id,omitempty"`
+	ExternalID string     `json:"external_id,omitempty"`
 	UpdatedAt  *time.Time `json:"updated_at,omitempty"`
 }
 
 type CreateExternalTicketParams struct {
 	// Optional
-	ExternalID  *string `json:"external_id,omitempty"`
-	ExternalURL *string `json:"external_url,omitempty"`
+	ExternalID  string `json:"external_id,omitempty"`
+	ExternalURL string `json:"external_url,omitempty"`
 }
 
 type CreateLabelParams struct {
@@ -96,9 +96,9 @@ type CreateLabelParams struct {
 	Name string `json:"name"`
 
 	// Optional
-	Color       *string `json:"color,omitempty"`
-	Description *string `json:"description,omitempty"`
-	ExternalID  *string `json:"external_id,omitempty"`
+	Color       string `json:"color,omitempty"`
+	Description string `json:"description,omitempty"`
+	ExternalID  string `json:"external_id,omitempty"`
 }
 
 type CreateStoryLinkParams struct {
@@ -115,7 +115,7 @@ type CreateTaskParams struct {
 
 	// Optional
 	CreatedAt  *time.Time `json:"created_at,omitempty"`
-	ExternalID *string    `json:"external_id,omitempty"`
+	ExternalID string     `json:"external_id,omitempty"`
 	OwnerIDs   []string   `json:"owner_ids,omitempty"`
 	UpdatedAt  *time.Time `json:"updated_at,omitempty"`
 }
@@ -133,39 +133,75 @@ type CreateStoryParams struct {
 	CompletedAtOverride *time.Time                   `json:"completed_at_override,omitempty"`
 	CreatedAt           *time.Time                   `json:"created_at,omitempty"`
 	Deadline            *time.Time                   `json:"deadline,omitempty"`
-	EpicID              *int64                       `json:"epic_id,omitempty"`
-	Estimate            *int64                       `json:"estimate,omitempty"`
-	ExternalID          *string                      `json:"external_id,omitempty"`
+	EpicID              int64                        `json:"epic_id,omitempty"`
+	Estimate            int64                        `json:"estimate,omitempty"`
+	ExternalID          string                       `json:"external_id,omitempty"`
 	ExternalTickets     []CreateExternalTicketParams `json:"external_tickets,omitempty"`
 	FileIDs             []int64                      `json:"file_ids,omitempty"`
 	FollowerIDs         []string                     `json:"follower_ids,omitempty"`
-	IterationID         *int64                       `json:"iteration_id,omitempty"`
+	IterationID         int64                        `json:"iteration_id,omitempty"`
 	Labels              []CreateLabelParams          `json:"labels,omitempty"`
 	LinkedFileIDs       []int64                      `json:"linked_file_ids,omitempty"`
 	OwnerIDs            []string                     `json:"owner_ids,omitempty"`
-	RequestedByID       *string                      `json:"requested_by_id,omitempty"`
+	RequestedByID       string                       `json:"requested_by_id,omitempty"`
 	StartedAtOverride   *time.Time                   `json:"started_at_override,omitempty"`
 	StoryLinks          []CreateStoryLinkParams      `json:"story_links,omitempty"`
 	Tasks               []CreateTaskParams           `json:"tasks,omitempty"`
 	UpdatedAt           *time.Time                   `json:"updated_at,omitempty"`
-	WorkflowStateID     *int64                       `json:"workflow_state_id,omitempty"`
+	WorkflowStateID     int64                        `json:"workflow_state_id,omitempty"`
 }
 
-type UpdateStoriesParam struct {
-	Name                string     `json:"name,omitempty"`
-	Description         string     `json:"description,omitempty"`
-	Archived            bool       `json:"archived"`
-	BeforeStoryID       *int64     `json:"before_id,omitempty"`
-	EpicID              *int64     `json:"epic_id,omitempty"`
-	Estimate            *int64     `json:"estimate,omitempty"`
-	BranchIDs           []*int64   `json:"branch_ids,omitempty"`
-	CommitIDs           []*int64   `json:"commit_ids,omitempty"`
-	FileIDs             []*int64   `json:"file_ids,omitempty"`
-	FollowerIDs         []*int64   `json:"follower_ids,omitempty"`
-	IterationID         []*int64   `json:"iteration_id,omitempty"`
-	StoryType           []*int64   `json:"story_type,omitempty"`
-	StartedAtOverride   *time.Time `json:"started_at_override,omitempty"`
-	CompletedAtOverride *time.Time `json:"completed_at_override,omitempty"`
+type UpdateStoryParams struct {
+	AfterId             int64               `json:"after_id,omitempty"`
+	Archived            bool                `json:"archived,omitempty"`
+	BeforeId            int64               `json:"before_id,omitempty"`
+	BranchIds           []int64             `json:"branch_ids,omitempty"`
+	CommitIds           []int64             `json:"commit_ids,omitempty"`
+	CompletedAtOverride *time.Time          `json:"completed_at_override,omitempty"`
+	Deadline            *time.Time          `json:"deadline,omitempty"`
+	Description         string              `json:"description,omitempty"`
+	EpicId              int64               `json:"epic_id,omitempty"`
+	Estimate            int64               `json:"estimate,omitempty"`
+	ExternalLinks       []string            `json:"external_links,omitempty"`
+	FileIds             []int64             `json:"file_ids,omitempty"`
+	FollowerIds         []string            `json:"follower_ids,omitempty"`
+	GroupId             string              `json:"group_id,omitempty"`
+	IterationId         int64               `json:"iteration_id,omitempty"`
+	Labels              []CreateLabelParams `json:"labels,omitempty"`
+	LinkedFileIds       []int64             `json:"linked_file_ids,omitempty"`
+	MoveTo              string              `json:"move_to,omitempty"`
+	Name                string              `json:"name,omitempty"`
+	OwnerIds            []string            `json:"owner_ids,omitempty"`
+	ProjectId           int64               `json:"project_id,omitempty"`
+	PullRequestIds      []int64             `json:"pull_request_ids,omitempty"`
+	RequestedById       string              `json:"requested_by_id,omitempty"`
+	StartedAtOverride   *time.Time          `json:"started_at_override,omitempty"`
+	StoryType           string              `json:"story_type,omitempty"`
+	WorkflowStateId     int64               `json:"workflow_state_id,omitempty"`
+}
+
+type UpdateMultipleStoriesParams struct {
+	AfterId           int64               `json:"after_id,omitempty"`
+	Archived          bool                `json:"archived,omitempty"`
+	BeforeId          int64               `json:"before_id,omitempty"`
+	Deadline          *time.Time          `json:"deadline,omitempty"`
+	EpicId            int64               `json:"epic_id,omitempty"`
+	Estimate          int64               `json:"estimate,omitempty"`
+	ExternalLinks     []string            `json:"external_links,omitempty"`
+	FollowerIdsAdd    []string            `json:"follower_ids_add,omitempty"`
+	FollowerIdsRemove []string            `json:"follower_ids_remove,omitempty"`
+	GroupId           string              `json:"group_id,omitempty"`
+	IterationId       int64               `json:"iteration_id,omitempty"`
+	LabelsAdd         []CreateLabelParams `json:"labels_add,omitempty"`
+	LabelsRemove      []CreateLabelParams `json:"labels_remove,omitempty"`
+	MoveTo            string              `json:"move_to,omitempty"`
+	OwnerIdsAdd       []string            `json:"owner_ids_add,omitempty"`
+	OwnerIdsRemove    []string            `json:"owner_ids_remove,omitempty"`
+	ProjectId         int64               `json:"project_id,omitempty"`
+	RequestedById     string              `json:"requested_by_id,omitempty"`
+	StoryIds          []int64             `json:"story_ids"` // Required
+	StoryType         string              `json:"story_type,omitempty"`
+	WorkflowStateId   int64               `json:"workflow_state_id,omitempty"`
 }
 
 type DeleteStoriesParam struct {
@@ -207,10 +243,35 @@ func (c *Client) StoriesCreate(params []CreateStoryParams) ([]*Story, error) {
 	return stories, nil
 }
 
+func (c *Client) UpdateMultipleStories(params UpdateMultipleStoriesParams) ([]*Story, error) {
+	path := "/stories/bulk"
+
+	req, err := c.makeRequest(http.MethodPut, path, params)
+	if err != nil {
+		return nil, err
+	}
+
+	resp, err := c.do(req)
+	if err != nil {
+		return nil, err
+	}
+
+	if resp.StatusCode != 200 {
+		return nil, fmt.Errorf("status code %d", resp.StatusCode)
+	}
+
+	var stories []*Story
+	if err := c.decode(resp, &stories); err != nil {
+		return nil, err
+	}
+
+	return stories, nil
+}
+
 func (c *Client) StoryArchive(storyId int64) (*Story, error) {
 	path := fmt.Sprintf("/stories/%d", storyId)
 
-	updateStory := UpdateStoriesParam{
+	updateStory := UpdateMultipleStoriesParams{
 		Archived: true,
 	}
 
