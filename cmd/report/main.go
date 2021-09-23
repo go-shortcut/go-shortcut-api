@@ -69,7 +69,8 @@ func main() {
 			return stories[i].EpicID < stories[j].EpicID
 		})
 
-		fmt.Printf("%-50s %-20s %-150s\n", "Story URL", "Owners", "Story Name")
+		//fmt.Printf("%-50s %-20s %-150s\n", "Story URL", "Owners", "Story Name")
+		fmt.Printf("%s\t%s\t%s\t%s\n", "Story URL", "State", "Owners", "Story Name")
 		var LastEpicID int64 = -1
 		for _, s := range stories {
 			if !s.Completed && !s.Archived {
@@ -90,7 +91,8 @@ func main() {
 				for _, oid := range s.OwnerIDs {
 					owners += getMember[oid].Profile.MentionName + ", "
 				}
-				fmt.Printf("%-50s %-30.30s %-30.30s  %-100.100s\n", s.AppURL, getWorkFlowState[s.WorkflowStateID].Name, owners, s.Name)
+				//fmt.Printf("%-50s %-30.30s %-30.30s  %-100.100s\n", s.AppURL, getWorkFlowState[s.WorkflowStateID].Name, owners, s.Name)
+				fmt.Printf("%s\t%s\t%s\t%s\n", s.AppURL, getWorkFlowState[s.WorkflowStateID].Name, owners, s.Name)
 
 			}
 
