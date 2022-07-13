@@ -11,6 +11,7 @@ build: build-report
 
 build-report:
 	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -o ~/bin/shortcut-report cmd/report/main.go
+	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -o ~/bin/shortcut-report-by-team cmd/report-by-team/main.go
 
 fmt:
 	go fmt ./...

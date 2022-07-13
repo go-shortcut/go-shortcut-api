@@ -1,6 +1,10 @@
 package shortcutclient
 
-import "time"
+import (
+	"fmt"
+	"net/http"
+	"time"
+)
 
 type Group struct {
 	AppURL      string `json:"app_url"`
@@ -35,4 +39,29 @@ func (c *Client) ListGroups() ([]Group, error) {
 	}
 
 	return groups, nil
+}
+
+func (c *Client) ListGroupStories(groupId string) ([]*Story, error) {
+	path := fmt.Sprintf("/groups/%s/stories", groupId)
+
+	req, err := c.makeRequest(http.MethodGet, path, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	resp, err := c.do(req)
+	if err != nil {
+		return nil, err
+	}
+
+	if resp.StatusCode != 200 {
+		return nil, fmt.Errorf("status code %d", resp.StatusCode)
+	}
+
+	var stories []*Story
+	if err := c.decode(resp, &stories); err != nil {
+		return nil, err
+	}
+
+	return stories, nil
 }
